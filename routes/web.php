@@ -21,6 +21,7 @@ Route::get('prueba', function(){
     return View::make('prueba');
 });
 
+Route::get('alumnos', 'alumnos@index');
 
 
 
