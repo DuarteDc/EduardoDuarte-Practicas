@@ -2,15 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Alumnos;
 use Illuminate\Http\Request;
 
-class alumnos extends Controller
+class controllerAlumnos extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function getAlumnos(){
+        $alumnos = array(
+            'nombre' => 'Eduardo ',
+            'apellidos' => 'Duarte',
+            'correo' => 'al221910409@gmail.com',
+            'edad' => 19,
+        );
+        return response()->json($alumnos);
+    }   
+
     public function index()
     {
         return view('alumnos');
@@ -32,11 +43,11 @@ class alumnos extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $alumnos = Alumnos::all();
+        return ($alumnos);
     }
-
     /**
      * Display the specified resource.
      *
@@ -45,9 +56,9 @@ class alumnos extends Controller
      */
     public function show($id)
     {
-        //
+        $i=Alumnos::find($id);
+        return ($i);
     }
-
     /**
      * Show the form for editing the specified resource.
      *

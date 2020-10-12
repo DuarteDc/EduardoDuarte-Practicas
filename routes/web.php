@@ -20,9 +20,13 @@ Route::get('/', function () {
 Route::get('prueba', function(){
     return View::make('prueba');
 });
+Route::get('alumnos', 'controllerAlumnos@index');
 
-Route::get('alumnos', 'alumnos@index');
+Route::get('alumnos1', 'controllerAlumnos@getAlumnos');
 
+Route::get('/show', 'controllerAlumnos@store');
+
+Route::get('show/{id}', 'controllerAlumnos@show');
 
 
 
