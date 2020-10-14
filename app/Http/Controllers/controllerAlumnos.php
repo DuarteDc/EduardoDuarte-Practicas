@@ -55,7 +55,9 @@ class controllerAlumnos extends Controller
      */
     public function store(Request $request)
     {
-        
+        $alumno = new Alumnos;
+        $alumno->create($request->all());
+        return redirect('alumnos');
         /*return $request;s
         $alumnos=$this->alumnos->create($request->all());
         return response()->json($alumnos);*/
