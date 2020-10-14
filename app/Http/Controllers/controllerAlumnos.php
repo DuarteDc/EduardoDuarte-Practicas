@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Alumnos;
 use Illuminate\Http\Request;
+use App\Http\Requests\Alumnosrequest;
 
 class controllerAlumnos extends Controller
 {
@@ -22,9 +23,18 @@ class controllerAlumnos extends Controller
         return response()->json($alumnos);
     }   
 
+
+    //protected $alumnos;
+
+    /*public function _construct(Alumnos $alumnos) {
+        $this->Alumnos=$alumnos;
+    }*/
+
     public function index()
     {
-        return view('alumnos');
+        //return view('alumnos');
+        $alumnos = Alumnos::all();
+        return ($alumnos);
     }
 
     /**
@@ -43,10 +53,13 @@ class controllerAlumnos extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        $alumnos = Alumnos::all();
-        return ($alumnos);
+        
+        /*return $request;s
+        $alumnos=$this->alumnos->create($request->all());
+        return response()->json($alumnos);*/
+        //return response()->json(new Alumnosrequest($alumnos),201);
     }
     /**
      * Display the specified resource.

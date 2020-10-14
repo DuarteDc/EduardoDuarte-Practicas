@@ -24,11 +24,11 @@ Route::get('alumnos', 'controllerAlumnos@index');
 
 Route::get('alumnos1', 'controllerAlumnos@getAlumnos');
 
-Route::get('/show', 'controllerAlumnos@store');
+Route::get('Alumnos', 'controllerAlumnos@store');
 
 Route::get('show/{id}', 'controllerAlumnos@show');
 
-
+Route::apiResource('apiAlumnos','controllerAlumnos');
 
 /*Route:get(‘Helloworld’ function(){ return ‘<h1>Hello World Carlos</h1>’});
 From Bonifacio to Everyone:  08:23 AM
