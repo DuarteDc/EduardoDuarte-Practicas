@@ -94,7 +94,8 @@ class controllerAlumnos extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Alumnos::find($id)->update($request->all());
+        return $request->all();
     }
 
     /**
@@ -105,6 +106,8 @@ class controllerAlumnos extends Controller
      */
     public function destroy($id)
     {
-        //
+        $alumnos = Alumnos::find($id);
+        $alumnos->delete();
+        return "El registro se elimino con existo";
     }
 }
