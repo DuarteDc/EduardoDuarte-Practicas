@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Alumnos;
+use App;
 use Illuminate\Http\Request;
 use App\Http\Requests\Alumnosrequest;
 
@@ -30,12 +30,29 @@ class controllerAlumnos extends Controller
         $this->Alumnos=$alumnos;
     }*/
 
-    public function index()
+    public function where1()
     {
-        //return view('alumnos');
-        $alumnos = Alumnos::all();
-        return ($alumnos);
+        $alumnos = App\Alumnos::select('id', 'nombre')
+        ->whereId('4')
+        ->get();
+        return response()->json($alumnos);
     }
+
+
+
+    public function where2(){
+        $alumno = App\Alumnos::whereEdad(18)->get();
+        return response()->json($alumno);
+    }
+
+
+    
+    public function where3(){
+        $alumnos = App\Alumnos::whereGrupo('B')->get();
+        return response()->json($alumnos);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -95,9 +112,8 @@ class controllerAlumnos extends Controller
     public function update(Request $request, $id)
     {
         Alumnos::find($id)->update($request->all());
-        return $request->all();
+        return  $request->all();
     }
-
     /**
      * Remove the specified resource from storage.
      *
